@@ -91,34 +91,34 @@
             </div>
             <div class="panel-body">
               <div class="row">
+                <div class="clearfix"></div>
+                <div class="form-group col-xs-9">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="example 'My New Non-Fungible Token'">
+                  <small id="nameHelp" class="form-text text-muted">A set of mixed case words</small>
+                </div>
                 <div class="form-group col-xs-6">
                   <label for="symbol">Symbol</label>
-                  <input type="text" class="form-control" id="symbol" aria-describedby="symbolHelp" placeholder="example 'BBC'">
+                  <input type="text" class="form-control" id="symbol" aria-describedby="symbolHelp" placeholder="example 'MNNT'">
                   <small id="symbolHelp" class="form-text text-muted">An uppercase word a few letters long</small>
                 </div>
                 <div class="clearfix"></div>
                 <div class="form-group col-xs-9">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="example 'Bob's Burgers 🍔 & Chips 🍟 Loyalty Points'">
-                  <small id="nameHelp" class="form-text text-muted">A set of mixed case words</small>
+                  <label for="decimals">Starting State Root</label>
+                  <input type="text" class="form-control" id="decimals" aria-describedby="decimalsHelp" placeholder="example '0x53cEd290FcA2906E056fB...'">
+                  <small id="decimalsHelp" class="form-text text-muted">Root of the merkle tree of the initial state</small>
                 </div>
                 <div class="clearfix"></div>
-                <div class="form-group col-xs-6">
-                  <label for="decimals">Decimals</label>
-                  <input type="number" class="form-control" id="decimals" aria-describedby="decimalsHelp" placeholder="example '18'">
-                  <small id="decimalsHelp" class="form-text text-muted">Number of decimal places, between 0 and 18, inclusive</small>
+                <div class="form-group col-xs-9">
+                  <label for="dataroot">Data Root</label>
+                  <input type="text" class="form-control" id="dataroot" aria-describedby="datarootHelp" placeholder="example '0x53cEd290FcA2906E056fB...'">
+                  <small id="datarootHelp" class="form-text text-muted">Root of the merkle tree of the initial state</small>
                 </div>
                 <div class="clearfix"></div>
                 <div class="form-group col-xs-6">
                   <label for="totalSupply">Total Supply</label>
                   <input type="number" class="form-control" id="totalSupply" aria-describedby="totalSupplyHelp" placeholder="example '123456.789'">
                   <small id="totalSupplyHelp" class="form-text text-muted">A positive number less than or equals to 100,000,000,000,000</small>
-                </div>
-                <div class="clearfix"></div>
-                <div class="form-group col-xs-5">
-                  <label for="deploymentFee">Deployment Fee (in ethers)</label>
-                  <input type="number" class="form-control" id="deploymentFee" aria-describedby="deploymentFeeHelp" placeholder="example 0.123456789">
-                  <small id="deploymentFeeHelp" class="form-text text-muted">Minimum deployment fee 0.1 ethers</small>
                 </div>
                 <div class="clearfix"></div>
                 <div class="form-group col-md-6">
@@ -234,30 +234,30 @@ var networks = {
   "5777" : { "network": "Ganache Devnet", "explorer": "(none)", "faucets": "(n/a)" },
 };
 
-var factoryAddress = "0xA550114ee3688601006b8b9f25e64732eF774934";
-var factoryAbi = [{"constant":false,"inputs":[{"name":"token","type":"address"},{"name":"tokens","type":"uint256"}],"name":"recoverTokens","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_minimumFee","type":"uint256"}],"name":"setMinimumFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"minimumFee","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numberOfChildren","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"children","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"newAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"symbol","type":"string"},{"name":"name","type":"string"},{"name":"decimals","type":"uint8"},{"name":"totalSupply","type":"uint256"}],"name":"deployTokenContract","outputs":[{"name":"token","type":"address"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_newAddress","type":"address"}],"name":"deprecateFactory","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"isChild","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_newAddress","type":"address"}],"name":"FactoryDeprecated","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"oldFee","type":"uint256"},{"indexed":false,"name":"newFee","type":"uint256"}],"name":"MinimumFeeUpdated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"token","type":"address"},{"indexed":false,"name":"symbol","type":"string"},{"indexed":false,"name":"name","type":"string"},{"indexed":false,"name":"decimals","type":"uint8"},{"indexed":false,"name":"totalSupply","type":"uint256"}],"name":"TokenDeployed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"}];
-var tokenAbi = [{"constant":false,"inputs":[{"name":"token","type":"address"},{"name":"tokens","type":"uint256"}],"name":"recoverTokens","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_owner","type":"address"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokenOwner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokenOwner","type":"address"},{"name":"symbol","type":"string"},{"name":"name","type":"string"},{"name":"decimals","type":"uint8"},{"name":"fixedSupply","type":"uint256"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"data","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"tokenOwner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Approval","type":"event"}];
+var factoryAddress = "0x6c6E65E2591F855BDBfD2AeF5861462dF822C672";
+var factoryAbi = [{"constant":false,"inputs":[{"name":"_minimumFee","type":"uint256"}],"name":"setMinimumFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_owner","type":"address"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"minimumFee","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numberOfChildren","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"symbol","type":"string"},{"name":"name","type":"string"},{"name":"totalSupply","type":"uint256"},{"name":"dataHash","type":"uint256"},{"name":"stateHash","type":"uint256"}],"name":"deployTokenContract","outputs":[{"name":"token","type":"address"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"children","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"newAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_newAddress","type":"address"}],"name":"deprecateFactory","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"isChild","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_newAddress","type":"address"}],"name":"FactoryDeprecated","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"oldFee","type":"uint256"},{"indexed":false,"name":"newFee","type":"uint256"}],"name":"MinimumFeeUpdated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"token","type":"address"},{"indexed":false,"name":"symbol","type":"string"},{"indexed":false,"name":"name","type":"string"},{"indexed":false,"name":"totalSupply","type":"uint256"},{"indexed":false,"name":"dataHash","type":"uint256"},{"indexed":false,"name":"stateHash","type":"uint256"}],"name":"TokenDeployed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
+// var tokenAbi = [{"constant":false,"inputs":[{"name":"token","type":"address"},{"name":"tokens","type":"uint256"}],"name":"recoverTokens","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_owner","type":"address"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokenOwner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokenOwner","type":"address"},{"name":"symbol","type":"string"},{"name":"name","type":"string"},{"name":"decimals","type":"uint8"},{"name":"fixedSupply","type":"uint256"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"data","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"tokenOwner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Approval","type":"event"}];
 
 var SYMBOLMAXLENGTH = 64;
 var NAMEMAXLENGTH = 128;
-var DECIMALSMAX = 18;
 var TOTALSUPPLYMAX = new BigNumber("1").shift(14); // 100 trillion
-var DEPLOYMENTFEEMAX = new BigNumber("100");
-
-var DEFAULTDECIMALS = 18;
+var HASH_LENGTH = 24;
 var DEFAULTTOTALSUPPLY = new BigNumber("1");
-
 var MAXFACTORYCHILDREN = 5;
+
+// var DECIMALSMAX = 18;
+// var DEPLOYMENTFEEMAX = new BigNumber("100");
+// var DEFAULTDECIMALS = 18;
 
 var SYMBOLNOTE = "An uppercase word a few letters long. Maximum length " + SYMBOLMAXLENGTH;
 var NAMENOTE = "A set of mixed case words. Maximum length " + NAMEMAXLENGTH;
-var DECIMALSNOTE = "Number of decimal places, between 0 and " + DECIMALSMAX + ", inclusive";
+var DECIMALSNOTE = "A " + HASH_LENGTH + " character hash of the initial state of your NFT network";
 var TOTALSUPPLYNOTE = "A positive number less than or equals to " + w2utils.formatNumber(TOTALSUPPLYMAX.toString());
-var DEPLOYMENTFEENOTE = "Minimum deployment fee ";
+var DEPLOYMENTFEENOTE = "A " + HASH_LENGTH + " character hash of the data for your ERC-721s";
 var READYTODEPLOY = "Note that there are additional network transaction fees"
 var NETWORKERROR = "Network error. Please check you have MetaMask installed and enabled in your web browser";
 var FACTORYSHORTNAME = "Fixed Supply Token 👊 Factory v1.10"
-var FACTORYDEPLOYGAS = 1200000;
+var FACTORYDEPLOYGAS = 3200000;
 
 var lastNetworkId = -123;
 var lastBlockNumber = -123;
@@ -304,9 +304,9 @@ $('#decimals').on('change', function (e) {
 $('#totalSupply').on('change', function (e) {
   execute('totalSupplyChanged');
 })
-$('#deploymentFee').on('change', function (e) {
-  execute('deploymentFeeChanged');
-})
+// $('#deploymentFee').on('change', function (e) {
+//   execute('deploymentFeeChanged');
+// })
 
 
 async function processLoop(action) {
@@ -399,7 +399,7 @@ async function establishConnection() {
   // Non-dapp browsers...
   } else {
     try {
-      window.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+      window.web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/8b02b10a8ec64b2d8f372c9031cf29f6'));
       console.log(loopCounter + " [establishConnection] Web3 connection");
       connectionOk = true;
     } catch (error) {
@@ -425,9 +425,9 @@ function getInputData() {
     "totalSupply": "",
     "totalSupplyValue": 0,
     "totalSupplyError": false,
-    "deploymentFee": "",
-    "deploymentFeeValue": 0,
-    "deploymentFeeError": false,
+    //"deploymentFee": "",
+    //"deploymentFeeValue": 0,
+    //"deploymentFeeError": false,
   };
 
   data.symbol = $('#symbol').val().trim();
@@ -450,26 +450,26 @@ function getInputData() {
     }
   }
 
-  data.decimals = $('#decimals').val();
+  data.decimals = $('#decimals').val().trim();
   if (data.decimals.length == 0) {
     data.inputFilled = false;
   } else {
-    try {
-      data.decimalsValue = parseInt(data.decimals);
-      if (isNaN(data.decimalsValue)) {
-        throw "nan";
-      }
-      if (data.decimalsValue < 0 || data.decimalsValue > DECIMALSMAX) {
-        throw "out of range";
-      }
-    } catch (e) {
-      console.log(loopCounter + " [getInputData] decimals: " + e);
-      data.decimalsValue = DEFAULTDECIMALS;
+    if (data.decimals.length != HASH_LENGTH) {
       data.decimalsError = true;
+      data.inputError = true;
+    } else {
+      data.decimalsValue = data.decimals;
     }
   }
-  if (data.decimalsError) {
-    data.inputError = true;
+
+  data.dataroot = $('#dataroot').val().trim();
+  if (data.dataroot.length == 0) {
+    data.inputFilled = false;
+  } else {
+    if (data.dataroot.length != HASH_LENGTH) {
+      data.datarootError = true;
+      data.inputError = true;
+    }
   }
 
   data.totalSupply = $('#totalSupply').val();
@@ -477,19 +477,12 @@ function getInputData() {
     data.inputFilled = false;
   } else {
     try {
-      if (data.inputFilled && !data.decimalsError) {
+      if (data.inputFilled) {
         var totalSupplyWithoutCommas = data.totalSupply.replace(/\,/g, '');
         data.totalSupplyValue = new BigNumber(totalSupplyWithoutCommas);
         console.log(loopCounter + " [getInputData] totalSupply: " + data.totalSupply);
-        console.log(loopCounter + " [getInputData] totalSupplyValue: " + data.totalSupplyValue);
-        console.log(loopCounter + " [getInputData] data.totalSupplyValue.shift(data.decimals): " + data.totalSupplyValue.shift(data.decimals));
-        console.log(loopCounter + " [getInputData] data.totalSupplyValue.shift(data.decimals).lessThan(1): " + data.totalSupplyValue.shift(data.decimals).lessThan(1));
-        console.log(loopCounter + " [getInputData] data.totalSupplyValue > TOTALSUPPLYMAX: " + (data.totalSupplyValue.gt(TOTALSUPPLYMAX)));
         if (isNaN(data.totalSupplyValue)) {
           throw "nan";
-        }
-        if (data.totalSupplyValue.shift(data.decimals).lessThan(1) || data.totalSupplyValue.gt(TOTALSUPPLYMAX)) {
-          throw "out of range";
         }
       }
     } catch (e) {
@@ -502,31 +495,27 @@ function getInputData() {
     data.inputError = true;
   }
 
-  data.deploymentFee = $('#deploymentFee').val();
-  if (data.deploymentFee.length == 0) {
+
+  data.name = $('#name').val().trim();
+  if (data.name.length == 0) {
     data.inputFilled = false;
   } else {
-    try {
-      var v = data.deploymentFee;
-      if (v.startsWith(".")) {
-        v = "0" + v;
-      }
-      data.deploymentFeeValue = new BigNumber(v);
-      if (isNaN(data.deploymentFeeValue)) {
-        throw "nan";
-      }
-      if (data.deploymentFee < currentMinimumFee || data.deploymentFee > DEPLOYMENTFEEMAX) {
-        throw "out of range";
-      }
-    } catch (e) {
-      console.log(loopCounter + " [getInputData] deploymentFee: " + e);
-      data.deploymentFeeValue = currentMinimumFee;
-      data.deploymentFeeError = true;
+    if (data.name.length > NAMEMAXLENGTH) {
+      data.inputError = true;
+      data.nameError = true;
     }
   }
-  if (data.deploymentFeeError) {
-    data.inputError = true;
-  }
+
+// Delete this v
+  // data.deploymentFee = $('#deploymentFee').val().trim();
+  // if (data.deploymentFee.length == 0) {
+  //   data.inputFilled = false;
+  // } else {
+  //   if (data.deploymentFee != HASH_LENGTH) {
+  //     data.inputError = true;
+  //     data.deploymentFeeError = true;
+  //   }
+  // }
 
   return data;
 }
@@ -634,18 +623,18 @@ async function processEth(data, action) {
       currentMinimumFee = minimumFee;
       $("#minimumFee").html('<a href="'+ network.explorer + 'address/' + factoryAddress + '#readContract" target="_blank">' + minimumFee.toString() + '</a> ethers');
 
-      console.log(loopCounter + " [processEth] connectionOk: " + connectionOk + " deploymentFee: " + data.deploymentFeeValue + " minimumFee: " + minimumFee);
-      if (data.deploymentFee.length > 0 && data.deploymentFeeValue < minimumFee) {
-        console.log(loopCounter + " [processEth] connectionOk: " + connectionOk + " deploymentFee: " + data.deploymentFeeValue + " minimumFee: " + minimumFee + " insufficient fee");
-        data.deploymentFeeError = true;
-        data.inputError = true;
-      }
-      if (data.deploymentFeeError) {
-        $("#deploymentFeeHelp").removeClass("text-muted").addClass("text-danger");
-      } else {
-        $("#deploymentFeeHelp").removeClass("text-danger").addClass("text-muted");
-      }
-      $("#deploymentFeeHelp").html(DEPLOYMENTFEENOTE + minimumFee + " ethers");
+      // console.log(loopCounter + " [processEth] connectionOk: " + connectionOk + " deploymentFee: " + data.deploymentFeeValue + " minimumFee: " + minimumFee);
+      // if (data.deploymentFee.length != HASH_LENGTH) {
+      //   console.log(loopCounter + " [processEth] connectionOk: " + connectionOk + " deploymentFee: " + data.deploymentFeeValue + " minimumFee: " + minimumFee + " insufficient fee");
+      //   data.deploymentFeeError = true;
+      //   data.inputError = true;
+      // // }
+      // if (data.deploymentFeeError) {
+      //   $("#deploymentFeeHelp").removeClass("text-muted").addClass("text-danger");
+      // } else {
+      //   $("#deploymentFeeHelp").removeClass("text-danger").addClass("text-muted");
+      // }
+      // $("#deploymentFeeHelp").html(DEPLOYMENTFEENOTE);
 
       if (data.inputError) {
         $("#deployHelp").removeClass("text-muted").addClass("text-danger");
@@ -672,54 +661,58 @@ async function processEth(data, action) {
         lastNumberOfChildren = numberOfChildren;
       }
       console.log(loopCounter + " [processEth] " + action + ": networkChanged: " + networkChanged + ", factoryUpdated: " + factoryUpdated);
-      if (networkChanged || factoryUpdated) {
-        var deployedContractsList = $('#deployedContractsList');
-        var child = numberOfChildren - 1;
-        var contentString = "";
-        while (child >= 0 && child >= (numberOfChildren - MAXFACTORYCHILDREN)) {
-          var _childAddress = promisify(cb => factory.children(child, cb));
-          var childAddress = await _childAddress;
-          var token = web3.eth.contract(tokenAbi).at(childAddress);
-          var _symbol = promisify(cb => token.symbol(cb));
-          var _name = promisify(cb => token.name(cb));
-          var _decimals = promisify(cb => token.decimals(cb));
-          var _totalSupply = promisify(cb => token.totalSupply(cb));
-          var symbol = await _symbol;
-          var name = await _name;
-          var decimals = await _decimals;
-          var totalSupply = await _totalSupply;
-          if (!(childAddress in seen)) {
-            var totalSupplyWithDecimals = new BigNumber(totalSupply).shift(-decimals);
-            contentString += "<p class=\"truncate\">" + (parseInt(child) + 1) + ". <a href=\"" + network.explorer + "token/" + childAddress + "\">'" + symbol + "' '" + name + "' " + decimals + " " + w2utils.formatNumber(parseFloat(totalSupplyWithDecimals)) + " " + childAddress + "</a></p>";
-            deployedContractsList.html(contentString);
-            seen[childAddress] = true;
-          }
-          child--;
-        }
-      }
+      // Listing all existing tokens
+      // if (networkChanged || factoryUpdated) {
+      //   var deployedContractsList = $('#deployedContractsList');
+      //   var child = numberOfChildren - 1;
+      //   var contentString = "";
+      //   while (child >= 0 && child >= (numberOfChildren - MAXFACTORYCHILDREN)) {
+      //     var _childAddress = promisify(cb => factory.children(child, cb));
+      //     var childAddress = await _childAddress;
+      //     var token = web3.eth.contract(tokenAbi).at(childAddress);
+      //     var _symbol = promisify(cb => token.symbol(cb));
+      //     var _name = promisify(cb => token.name(cb));
+      //     var _decimals = promisify(cb => token.decimals(cb));
+      //     var _totalSupply = promisify(cb => token.totalSupply(cb));
+      //     var symbol = await _symbol;
+      //     var name = await _name;
+      //     var decimals = await _decimals;
+      //     var totalSupply = await _totalSupply;
+      //     if (!(childAddress in seen)) {
+      //       var totalSupplyWithDecimals = new BigNumber(totalSupply).shift(-decimals);
+      //       contentString += "<p class=\"truncate\">" + (parseInt(child) + 1) + ". <a href=\"" + network.explorer + "token/" + childAddress + "\">'" + symbol + "' '" + name + "' " + decimals + " " + w2utils.formatNumber(parseFloat(totalSupplyWithDecimals)) + " " + childAddress + "</a></p>";
+      //       deployedContractsList.html(contentString);
+      //       seen[childAddress] = true;
+      //     }
+      //     child--;
+      //   }
+      // }
 
       if (data.inputFilled && !data.inputError && action == "deployClicked") {
         $("#deploy").prop("disabled", true);
         $("#transactionStatusDiv").removeClass("hidden");
         // $("#deployNote").html('Deploying token contract with deployment fee: ' + data.deploymentFeeValue.shift(-18).value);
         console.log("deploy balance: " + JSON.stringify(balance));
-        console.log("deploy data.deploymentFee: " + JSON.stringify(data.deploymentFeeValue.shift(-18)));
+        //console.log("deploy data.deploymentFee: " + JSON.stringify(data.deploymentFeeValue.shift(-18)));
         console.log("deploy minimumFee: " + JSON.stringify(minimumFee));
-        if ((balance.greaterThanOrEqualTo(data.deploymentFeeValue)) && (data.deploymentFeeValue.greaterThanOrEqualTo(minimumFee))) {
+        if (true) {
           console.log("deployTokenContract: symbol: " + data.symbol);
           console.log("deployTokenContract: name: " + data.name);
-          console.log("deployTokenContract: decimals: " + data.decimalsValue);
-          console.log("deployTokenContract: totalSupply: " + data.totalSupplyValue.shift(data.decimals));
+          console.log("deployTokenContract: State Root: " + data.decimalsValue);
+          console.log("deployTokenContract: Data Root: " + data.dataroot);
+          console.log("deployTokenContract: totalSupply: " + data.totalSupplyValue);
           console.log("deployTokenContract: account: " + account);
           console.log("deployTokenContract: gas: " + FACTORYDEPLOYGAS);
-          console.log("deployTokenContract: data.deploymentFee: " + data.deploymentFeeValue);
-          console.log("deployTokenContract: executing: factory.deployTokenContract(" + data.symbol + ", " + data.name + ", " + data.decimalsValue + ", " + data.totalSupplyValue.shift(data.decimals).toString() + ", {from: " + account + ", gas: " + FACTORYDEPLOYGAS + ", value: " + data.deploymentFeeValue.shift(18).toString() + "})");
+          console.log("deployTokenContract: fee:" + '110000000000000000')
+          //console.log("deployTokenContract: data.deploymentFee: " + data.deploymentFeeValue);
+          console.log("deployTokenContract: executing: factory.deployTokenContract(" + data.symbol + ", " + data.name + ", " + data.totalSupply + ", " + data.dataroot  + ", " + data.decimalsValue + ", {from: " + account + ", gas: " + FACTORYDEPLOYGAS + ", value: " + '110000000000000000' + "})");
 
-          var txData = factory.deployTokenContract.getData(data.symbol, data.name, data.decimals, data.totalSupplyValue.shift(data.decimalsValue).toString(), {from: account, gas: FACTORYDEPLOYGAS, value: data.deploymentFeeValue.shift(18).toString()});
+          var txData = factory.deployTokenContract.getData(data.symbol, data.name, data.totalSupply, data.dataroot, data.decimalsValue, {from: account, gas: FACTORYDEPLOYGAS, value: '110000000000000000'});
           console.log(JSON.stringify(txData));
 
           // function deployTokenContract(string memory symbol, string memory name, uint8 decimals, uint totalSupply) public payable returns (FixedSupplyToken token);
-          factory.deployTokenContract(data.symbol, data.name, data.decimals, data.totalSupplyValue.shift(data.decimalsValue).toString(), {from: account, gas: FACTORYDEPLOYGAS, value: data.deploymentFeeValue.shift(18).toString()}, function(error, tx) {
+          console.log("Starting deploy call: ");
+          factory.deployTokenContract(data.symbol, data.name, data.totalSupply, data.dataroot, data.decimalsValue, {from: account, gas: FACTORYDEPLOYGAS, value: '110000000000000000'}, function(error, tx) {
             if (!error) {
               $("#deployNote").html('Deployed ' + tx + ' <a href="' + network.explorer + 'tx/' + tx + '" target="_blank">🔗</a>');
             } else {
